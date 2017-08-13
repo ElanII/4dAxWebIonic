@@ -1,0 +1,12 @@
+<ion-view title="Cotisations" id="page4">
+<ion-nav-title>Historique cotisations</ion-nav-title>
+  <ion-content padding="true" class="has-header">
+    <ion-list id="cotisations-list5">
+      <ion-item ng-repeat="Cotisation in Cotisations" ui-sref="cotisations({numReg:Cotisation.numReg})">
+      <p>Année:{{Cotisation.anneeRef}} ({{Cotisation.dateReg|date:"dd-MM-yy"}}) c:{{Cotisation.cotisation}}€
+       a:{{Cotisation.abonnement}}€ d:{{Cotisation.don}}€ total:{{Cotisation.total}}€</p>
+      </ion-item>
+      
+    </ion-list>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,14 @@
+<ion-view title="Activites" id="page3">
+<ion-nav-title>Activités professionnelles</ion-nav-title>
+  <ion-content padding="true" class="has-header">
+    <ion-list id="activites-list4">
+      <ion-item  ng-repeat="Activite in Activites"
+       ui-sref="activites({codeEtab:Activite.codeEtab})">
+      <p><strong>{{Activite.sigle}} - {{Activite.etab}}</strong></p>
+      <p>etab: {{Activite.codeEtab}} ({{Activite.NAF}}) tel: {{Activite.telephone}} - serv:{{Activite.service}} -</p>
+      <p>fct: {{Activite.codeF}} ({{Activite.fonction}}) du {{Activite.dateEntree}} au {{Activite.dateSortie}} maj: {{Activite.dateMaj}}</p>
+      </ion-item>
+      
+    </ion-list>
+  </ion-content>
+</ion-view>

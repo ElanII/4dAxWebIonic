@@ -1,0 +1,21 @@
+<ion-view title="Anciens" id="page1">
+  <ion-content padding="true" class="has-header">
+
+    <form id="anciens-form2" class="list">
+    <label class="item item-input" id="anciens-search1">
+      <i class="icon ion-search placeholder-icon"></i>
+      <input type="search" placeholder="promo|groupeX|nom" ng-model="Ancien.nom" ng-change="searchAncien();getStats()">
+    </label>
+    </form>
+    <ion-item>Total sélection: {{Stats.nb}}  C: {{Stats.cotisants}}  A: {{Stats.abonnes}}  R: {{Stats.retards}}</ion-item>
+    <ion-list id="anciens-list1">
+     <ion-item  class="item-avatar" ng-repeat="Ancien in Anciens" ui-sref="ancien({id:Ancien.id})">
+       <img src="img/avatar.x.org.png"/>
+        <h2>{{Ancien.nom}} {{Ancien.prenom}} ({{Ancien.promo}})</h2>
+        <p>{{Ancien.mobile}} - {{Ancien.mel}}</p>
+     </ion-item>
+    
+  </ion-list>
+
+  </ion-content>
+</ion-view>

@@ -1,0 +1,23 @@
+<ion-view title="Ancien" id="page2">
+  <ion-nav-title>{{Ancien.prenom}} {{Ancien.nom}} ({{Ancien.id}})</ion-nav-title>
+  <ion-content padding="true" class="has-header">
+    <div id="ancien-markdown1" class="show-list-numbers-and-dots">
+    
+      <p>Prénom: {{Ancien.prenom}}</p>
+      <p>Nom: {{Ancien.nom}}</p>
+      <p>Origine: {{Ancien.origine}} - {{Ancien.corps}}</p>
+      <p>Promo: {{Ancien.promo}} dipl:{{Ancien.diplome}}
+       Nat: {{Ancien.nationalite}}</p>
+      <p>Cotisant: {{Ancien.cotisantDeb}}-{{Ancien.cotisant}}</p>
+      <p>Membre: {{Ancien.membre}} {{Ancien.typeCotisation}} ({{Ancien.conjointNom}})</p>
+      <p>Mode cotisation: {{Ancien.modeCotisation}}</p>
+      <p>Loc.: {{Ancien.cp}}{{Ancien.zip}} ({{Ancien.pays}})</p>
+      <p>Mél.: {{Ancien.mel}}</p>
+      <p>Tél.: {{Ancien.tel}}</p>
+      <p>Mobile: {{Ancien.mobile}}</p>
+   
+    </div>
+    <a ui-sref="activites({id:Ancien.id})" id="ancien-button1" class="button button-positive button-block">Activités prof.</a>
+    <a ui-sref="cotisations({id:Ancien.id})" id="ancien-button2" class="button button-positive button-block">Cotisations</a>
+  </ion-content>
+</ion-view>

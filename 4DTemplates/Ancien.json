@@ -1,0 +1,26 @@
+<!--#4DCODE QUERY([Ancien];[Ancien]id_ancien=$1+"@") -->
+{
+"id":"<!--#4DTEXT [Ancien]id_ancien-->",
+"nom":"<!--#4DTEXT [Ancien]Nom_usuel-->",
+"prenom":"<!--#4DTEXT [Ancien]prenom-->",
+"promo":"<!--#4DTEXT [Ancien]promotion_etude-->",
+"nationalite":"<!--#4DTEXT [Ancien]Code_nationalite-->",
+"origine":"<!--#4DTEXT [Ancien]Origine-->",
+"diplome":"<!--#4DTEXT [Ancien]Annee_diplome-->",
+"corps":"<!--#4DTEXT [Ancien]Corps_sortie-->",
+"cotisant":"<!--#4DTEXT [Ancien]Annee_dernCotis-->",
+"cotisantDeb":"<!--#4DTEXT [Ancien]Annee_premCot-->",
+"conjointNom":"<!--#4DTEXT [Ancien]NomPren_conjoin-->",
+"conjointMat":"<!--#4DTEXT [Ancien]Matric_conjoint-->",
+"couple":"<!--#4DTEXT [Ancien]Couple_Ax-->",
+"modeCotisation": "<!--#4DTEXT [Ancien]Mode_reglt-->",
+"typeCotisation":"<!--#4DTEXT [Ancien]Type_cotisant-->",
+"membre":"<!--#4DTEXT [Ancien]Type_membre-->",
+"cp":"<!--#4DCODE if (not([Ancien]Adresse_inhibee)) --><!--#4DTEXT [Ancien]AdrC_code_posta--><!--#4DCODE  end if -->",
+"zip":"<!--#4DCODE if (not([Ancien]Adresse_inhibee)) --><!--#4DTEXT [Ancien]AdrC_zip_cedex--><!--#4DCODE  end if -->",
+"pays":"<!--#4DCODE if (not([Ancien]Adresse_inhibee)) --><!--#4DTEXT [Ancien]AdrC_pays--><!--#4DCODE  end if -->",
+"mel":" <!--#4DCODE if ([Ancien]Mel_publiable) --><!--#4DTEXT [Ancien]Mel_usage--><!--#4DCODE end if -->",
+"tel":"<!--#4DTEXT [Ancien]Adr2_telephone-->",
+"mobile":"<!--#4DCODE if ([Ancien]Mobile_publiable) --><!--#4DTEXT [Ancien]Tel_mobile--><!--#4DCODE  end if -->"
+
+}

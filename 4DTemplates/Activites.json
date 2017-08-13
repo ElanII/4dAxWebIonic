@@ -1,0 +1,30 @@
+<!--#4DCODE SET QUERY LIMIT (12) -->
+<!--#4DCODE
+if($1#"")
+QUERY([Activites_prof];[Ancien]id_ancien=$1+"@")
+end if
+order by ([Activites_prof]; [Activites_prof]Date_maj;>)
+-->
+
+[
+<!--#4DLOOP [Activites_prof]-->
+{
+"idAncien":"<!--#4DTEXT [Activites_prof]id_ancien-->",
+"fonction":"<!--#4DTEXT [Activites_prof]Libelle_fonction-->",
+"codeF":"<!--#4DTEXT [Activites_prof]Code_fonction-->",
+"service":"<!--#4DTEXT [Activites_prof]Service-->",
+"etab":"<!--#4DTEXT [Activites_prof]Nom_etab-->",
+"codeEtab":"<!--#4DTEXT [Activites_prof]Code_etab-->",
+"codeNAF":"<!--#4DTEXT [Activites_prof]Code_NAF-->",
+"tel":"<!--#4DTEXT [Activites_prof]Telephone-->",
+"web":"<!--#4DTEXT [Activites_prof]Adr_internet-->",
+"sigle":"<!--#4DTEXT [Activites_prof]sigle-->",
+"dateEntree":"<!--#4DTEXT [Activites_prof]Date_entree-->",
+"dateSortie":"<!--#4DTEXT [Activites_prof]Date_sortie-->",
+"dateMaj":"<!--#4DTEXT [Activites_prof]Date_maj-->"
+}
+<!--#4DIF (Selected Record Number([Activites_prof]) < Records in Selection([Activites_prof]))-->,
+<!--#4DENDIF-->
+
+<!--#4DENDLOOP-->
+]

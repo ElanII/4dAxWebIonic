@@ -1,0 +1,38 @@
+<!--#4DCODE SET QUERY LIMIT (30) -->
+<!--#4DCODE QUERY([Reglement];[Ancien]id_ancien=$1+"@") -->
+<!--#4DCODE
+if($1#"")
+QUERY([Reglement];[Ancien]id_ancien=$1+"@")
+end if
+order by ([Reglement]; [Reglement]Date_reglt;<)
+
+-->
+ 
+[
+<!--#4DLOOP [Reglement]-->
+<!--#4DCODE abonnement:=Num([Reglement]Montant_total)-Num([Reglement]Montant_cotis)-Num([Reglement]Montant_don)
+-Num([Reglement]Montant_ecart)- Num([Reglement]Montant_divers) -->
+{
+"idAncien":"<!--#4DTEXT [Reglement]id_ancien-->",
+"anneeRef":"<!--#4DTEXT [Reglement]Annee_REF-->",
+"annule":"<!--#4DTEXT [Reglement]Annule-->",
+"dateReg":"<!--#4DTEXT [Reglement]Date_reglt-->",
+"numReg":"<!--#4DTEXT [Reglement]Numero_reglt-->",
+"cotisation":"<!--#4DTEXT [Reglement]Montant_cotis-->",
+"abonnement":"<!--#4DTEXT String(abonnement)-->",
+"divers":"<!--#4DTEXT [Reglement]Montant_divers-->",
+"don":"<!--#4DTEXT [Reglement]Montant_don-->",
+"ecart":"<!--#4DTEXT [Reglement]Montant_ecart-->",
+"total":"<!--#4DTEXT [Reglement]Montant_total-->",
+"prelev":"<!--#4DTEXT [Reglement]Prelevement-->",
+"dateExport":"<!--#4DTEXT [Reglement]Date_export-->",
+"reference":"<!--#4DTEXT [Reglement]Reference-->",
+"detail":"<!--#4DTEXT [Reglement]Detail-->",
+"detailAttente":"<!--#4DTEXT [Reglement]Detail_EnAttent-->",
+"statut":"<!--#4DTEXT [Reglement]Statut_reglt-->" 
+}
+<!--#4DIF (Selected Record Number([Reglement]) < Records in Selection([Reglement]))-->,
+<!--#4DENDIF-->
+
+<!--#4DENDLOOP-->
+]

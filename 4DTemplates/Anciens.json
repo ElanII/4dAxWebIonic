@@ -1,0 +1,40 @@
+<!--#4DCODE SET QUERY LIMIT (500) -->
+<!--#4DCODE
+
+if($1#"")
+query([Ancien];[Ancien]Nom_usuel=$1+"@";*)
+query([Ancien];|[Ancien]prenom=$1+"@";*)
+query([Ancien];|[Ancien]promotion_etude=$1+"@";*)
+query([Ancien];|[Ancien]Code_nationalite=$1+"@";*)
+query([Ancien];|[Ancien]AdrC_pays=$1+"@";*)
+query([Ancien];|[Ancien_Info_diverses]Code_info=$1+"@";*)
+
+query([Ancien];|[Activites_prof]Nom_etab=$1+"@";*)
+query([Ancien];|[Activites_prof]Code_etab=$1+"@";*)
+
+query([Ancien];&; [Ancien]Origine="X")
+
+else
+query([Ancien];[Ancien_Info_diverses]Type_info="AS";*)
+query([Ancien];&;[Ancien_Info_diverses]Code_info="PER")
+end if
+order by ([Ancien]; [Ancien]id_ancien;<)
+-->
+
+[
+<!--#4DLOOP [Ancien]-->
+
+{
+"id":"<!--#4DTEXT [Ancien]id_ancien-->",
+"nom":"<!--#4DTEXT [Ancien]Nom_usuel-->",
+"prenom":"<!--#4DTEXT [Ancien]prenom-->",
+"promo":"<!--#4DTEXT [Ancien]promotion_etude-->",
+"mel":" <!--#4DCODE if ([Ancien]Mel_publiable)--><!--#4DTEXT [Ancien]Mel_usage--><!--#4DCODE end if -->",
+"mobile":"<!--#4DCODE if ([Ancien]Mobile_publiable)--><!--#4DTEXT [Ancien]Tel_mobile--><!--#4DCODE end if -->"
+
+}
+<!--#4DIF (Selected Record Number([Ancien]) < Records in Selection([Ancien]))-->,
+<!--#4DENDIF-->
+
+<!--#4DENDLOOP-->
+]
