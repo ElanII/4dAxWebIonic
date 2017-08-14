@@ -1,0 +1,14 @@
+<ion-view title="Adresses" id="page5">
+<ion-nav-title>Adresses et tél.</ion-nav-title>
+  <ion-content padding="true" class="has-header">
+    <ion-list id="adresses-list5">
+      <ion-item ng-repeat="Adresse in Adresses" ui-sref="adresses({typeAdr:Adresse.typeAdr})">
+      <p><strong>{{Adresse.typeAdr}}</strong> {{Adresse.cp}}{{Adresse.zip}} {{Adresse.pays}} 
+       adresse en NPAI: {{Adresse.nhpai}} fois ({{Adresse.date_nhpai}})
+       tél: <strong>{{Adresse.tel}}</strong> 
+       mel: {{Adresse.mel}} mel_usage( {{Adresse.mel_usage}}) mel_invalide({{Adresse.mel_invalide}})</p>
+      </ion-item>
+      
+    </ion-list>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,9 @@
+  // api_ancien_adresses returns up to 4 different addresses (P S1 S2 and E)
+  // this method contains a search alumni id for the parameter
+$id:=Substring($1;2)  // parameter to search
+
+$path:=Get 4D folder(HTML Root folder)+"4DTemplates"+Folder separator+"Adresses.json"
+$template:=Document to text($path)
+$answer:=""
+PROCESS 4D TAGS($template;$answer;$id)
+WEB SEND TEXT($answer

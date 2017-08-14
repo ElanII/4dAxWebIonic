@@ -1,0 +1,12 @@
+C_TEXT($1)
+
+Case of 
+	: ($1="@test")
+		vDate:=Current date
+		vMachine:=Current machine
+		QUERY([Ancien];[Ancien]id_ancien="19620295")
+		WEB SEND TEXT("Ancien: "+[Ancien]Nom_usuel+" "+[Ancien]prenom+" "+String(vDate)+" "+String(vMachine))
+	: ($1="PER")
+		api_anciens 
+		
+End case 

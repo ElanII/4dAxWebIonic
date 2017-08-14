@@ -1,0 +1,33 @@
+<!--#4DCODE SET QUERY LIMIT (8) -->
+<!--#4DCODE
+if($1#"")
+QUERY([ADRESSE];[Ancien]id_ancien=$1)
+end if
+order by ([ADRESSE]; [ADRESSE]Type_adr;>)
+-->
+
+[
+<!--#4DLOOP [ADRESSE]-->
+{
+"idAncien":"<!--#4DTEXT [ADRESSE]id_ancien-->",
+"typeAdr":"<!--#4DTEXT [ADRESSE]Type_adr-->",
+"cp":"<!--#4DTEXT [ADRESSE]cp-->",
+"ville":"<!--#4DTEXT [ADRESSE]ville-->",
+"zip":"<!--#4DTEXT [ADRESSE]zip_cedex-->",
+"etatRegion":"<!--#4DTEXT [ADRESSE]etat_region-->",
+"pays":"<!--#4DTEXT [ADRESSE]pays-->",
+"tel":"<!--#4DTEXT [ADRESSE]tel-->",
+"mel":"<!--#4DTEXT [ADRESSE]mel-->",
+"nhpai":"<!--#4DTEXT [ADRESSE]nhpai-->",
+"dateNhpai":"<!--#4DTEXT [ADRESSE]date_nhpai-->",
+"mel_invalide":"<!--#4DTEXT [ADRESSE]mel_invalide-->",
+"courrier":"<!--#4DTEXT [ADRESSE]adr_courrier-->",
+"inhibee":"<!--#4DTEXT [ADRESSE]adr_inhibee-->",
+"mel_usage":"<!--#4DTEXT [ADRESSE]mel_usage-->",
+"dateMaj":"<!--#4DTEXT [ADRESSE]date_maj-->"
+}
+<!--#4DIF (Selected Record Number([ADRESSE]) < Records in Selection([ADRESSE]))-->,
+<!--#4DENDIF-->
+
+<!--#4DENDLOOP-->
+]

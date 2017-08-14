@@ -1,0 +1,43 @@
+  //Méthode base Sur authentification Web
+C_TEXT($5;$6;$3;$4;$3;$2;$1)
+C_TEXT($utilisateur;$motPasse;$IPBrowser;$IPServer)
+C_BOOLEAN($utilisateur4D)
+ARRAY TEXT($utilisateurs;0)
+ARRAY LONGINT($nums;0)
+C_LONGINT($upos)
+C_BOOLEAN($0)
+
+$0:=False
+
+$utilisateur:=$5
+$motPasse:=$6
+$IPBrowser:=$3
+$IPServer:=$4
+
+  //Pour des raisons de sécurité, refuser les noms qui contiennent @
+If (AvecJoker ($utilisateur) | AvecJoker ($motPasse))
+	$0:=False
+	  //La méthode AvecJoker est décrite ci-dessous
+Else 
+	  //Vérifier si c’est un utilisateur 4D
+	GET USER LIST($utilisateurs;$nums)  `Administrateur(aglm), Default_user(ax2017), Super_Utilisateur(J..1), tran
+	$upos:=Find in array($utilisateurs;$utilisateur)
+	If ($upos>0)
+		$utilisateur4D:=Not(Is user deleted($nums{$upos}))
+	Else 
+		$utilisateur4D:=False
+	End if 
+	
+	If (Not($utilisateur4D))
+		  //Ce n’est pas un utilisateur défini dans 4D, chercher dans la table des utilisateurs Web
+		QUERY([WebUsers];[WebUsers]User=$utilisateur;*)  `qtran49
+		QUERY([WebUsers]; & [WebUsers]Password=$motPasse)
+		$0:=(Records in selection([WebUsers])=1)
+	Else 
+		$0:=True
+	End if 
+End if 
+  //Est-ce une connexion intranet ?
+If (Substring($IPBrowser;1;9)#"192.168.1")
+	$0:=False
+End if 

@@ -1,0 +1,13 @@
+  //Méthode projet AvecJoker
+  //AvecJoker ( Chaine ) -> Booléen
+  //AvecJoker ( Nom ) -> Contient un joker
+
+C_LONGINT($i)
+C_BOOLEAN($0)
+C_TEXT($1)
+$0:=False
+For ($i;1;Length($1))
+	If (Character code(Substring($1;$i;1))=Character code("@"))
+		$0:=True
+	End if 
+End for 
