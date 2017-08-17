@@ -60,10 +60,26 @@ angular.module('app.services', [])
 			});
 			return deferred.promise;			
 		},
+		retAdresses:function(id) {
+		var deferred = $q.defer();			
+		$http.get("../4Daction/api_ancien_adresses/"+id).then(function(res) {
+				deferred.resolve(res.data);
+			});
+			return deferred.promise;			
+		},
 		
 		getActivites:function(id, callback) {
 		var deferred = $q.defer();			
 		$http.get("../4Daction/api_ancien_activites/"+id).then(function(res) {
+			deferred.resolve(res.data);
+			callback(res.data);
+			});
+			return deferred.promise;			
+		},
+		
+		getAdresses:function(id, callback) {
+		var deferred = $q.defer();			
+		$http.get("../4Daction/api_ancien_adresses/"+id).then(function(res) {
 			deferred.resolve(res.data);
 			callback(res.data);
 			});

@@ -9,15 +9,16 @@
       <p>Promo: {{Ancien.promo}} dipl:{{Ancien.diplome}}
        Nat: {{Ancien.nationalite}}</p>
       <p>Cotisant: {{Ancien.cotisantDeb}}-{{Ancien.cotisant}}</p>
-      <p>Membre: {{Ancien.membre}} {{Ancien.typeCotisation}} ({{Ancien.conjointNom}})</p>
+      <p>Membre: {{Ancien.membre}}({{Ancien.deces}}) {{Ancien.typeCotisation}} ({{Ancien.conjointNom}})</p>
       <p>Mode cotisation: {{Ancien.modeCotisation}}</p>
       <p>Loc.: {{Ancien.cp}}{{Ancien.zip}} ({{Ancien.pays}})</p>
-      <p>Mél.: {{Ancien.mel}}</p>
-      <p>Tél.: {{Ancien.tel}}</p>
+      <p>Mél.usage: {{Ancien.mel}}</p>
+      <p>Tél.fixe perso: {{Ancien.tel}}</p>
       <p>Mobile: {{Ancien.mobile}}</p>
-   
+   	  <p>rem: {{Ancien.commentaire}}</p>
     </div>
     <a ui-sref="activites({id:Ancien.id})" id="ancien-button1" class="button button-positive button-block">Activités prof.</a>
     <a ui-sref="cotisations({id:Ancien.id})" id="ancien-button2" class="button button-positive button-block">Cotisations</a>
+    <a ui-sref="adresses({id:Ancien.id})" id="ancien-button3" class="button button-positive button-block">Adresses et tél.</a>
   </ion-content>
 </ion-view>

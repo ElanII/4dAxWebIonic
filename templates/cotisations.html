@@ -3,8 +3,10 @@
   <ion-content padding="true" class="has-header">
     <ion-list id="cotisations-list5">
       <ion-item ng-repeat="Cotisation in Cotisations" ui-sref="cotisations({numReg:Cotisation.numReg})">
-      <p>Année:{{Cotisation.anneeRef}} ({{Cotisation.dateReg|date:"dd-MM-yy"}}) c:{{Cotisation.cotisation}}€
-       a:{{Cotisation.abonnement}}€ d:{{Cotisation.don}}€ total:{{Cotisation.total}}€</p>
+      <p><strong>{{Cotisation.anneeRef}}</strong> ({{Cotisation.dateReg|date:"dd-MM-yy"}} par {{Cotisation.modePaiement}}) 
+      <strong>{{Cotisation.total}}€</strong> (c:{{Cotisation.cotisation}}€
+       a:{{Cotisation.abonnement}}€ d:{{Cotisation.don}}€) &nbsp;
+       {{Cotisation.detail}} - {{Cotisation.commentaire}} -{{Cotisation.versementLibelle}}</p>
       </ion-item>
       
     </ion-list>

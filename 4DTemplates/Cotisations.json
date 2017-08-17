@@ -12,6 +12,9 @@ order by ([Reglement]; [Reglement]Date_reglt;<)
 <!--#4DLOOP [Reglement]-->
 <!--#4DCODE abonnement:=Num([Reglement]Montant_total)-Num([Reglement]Montant_cotis)-Num([Reglement]Montant_don)
 -Num([Reglement]Montant_ecart)- Num([Reglement]Montant_divers) -->
+
+
+
 {
 "idAncien":"<!--#4DTEXT [Reglement]id_ancien-->",
 "anneeRef":"<!--#4DTEXT [Reglement]Annee_REF-->",
@@ -25,10 +28,13 @@ order by ([Reglement]; [Reglement]Date_reglt;<)
 "ecart":"<!--#4DTEXT [Reglement]Montant_ecart-->",
 "total":"<!--#4DTEXT [Reglement]Montant_total-->",
 "prelev":"<!--#4DTEXT [Reglement]Prelevement-->",
+"modePaiement":"<!--#4DCODE QUERY ([Versement];[Versement]Numero_reglt=[Reglement]Numero_reglt)--><!--#4DTEXT [Versement]Mode_reglement-->",
+"versementLibelle":"<!--#4DTEXT [Versement]Libelle-->",
 "dateExport":"<!--#4DTEXT [Reglement]Date_export-->",
 "reference":"<!--#4DTEXT [Reglement]Reference-->",
 "detail":"<!--#4DTEXT [Reglement]Detail-->",
 "detailAttente":"<!--#4DTEXT [Reglement]Detail_EnAttent-->",
+"commentaire":"<!--#4DTEXT [Reglement]Comment-->",
 "statut":"<!--#4DTEXT [Reglement]Statut_reglt-->" 
 }
 <!--#4DIF (Selected Record Number([Reglement]) < Records in Selection([Reglement]))-->,

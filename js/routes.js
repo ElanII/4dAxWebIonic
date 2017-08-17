@@ -32,6 +32,12 @@ angular.module('app.routes', [])
     templateUrl: 'templates/cotisations.html',
     controller: 'cotisationsCtrl'
   })
+  
+  .state('adresses', {
+    url: '/page5/:id',
+    templateUrl: 'templates/adresses.html',
+    controller: 'adressesCtrl'
+  })
 
 $urlRouterProvider.otherwise('/page1')
 

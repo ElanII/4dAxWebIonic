@@ -86,3 +86,27 @@ angular.module('app.controllers', [])
 	});
 
 })
+
+.controller('adressesCtrl', function ($scope, $stateParams, AnciensService) {
+	$scope.Ancien = {id:''}; 
+	$scope.Adresses=[];
+	$scope.Adresse={}
+	
+	$scope.getAdresses = function() {
+	  AnciensService.getAdresses($scope.Ancien.id, function(adresses) {
+	  $scope.Adresses = adresses;
+	  });
+	};
+	
+	$scope.getAncien = function() {
+	  AnciensService.getAncien($scope.Ancien.id, function(ancien) {
+	  $scope.Ancien = ancien;
+	  });
+	};
+	
+	AnciensService.retAdresses($stateParams.id).then(function(res) {
+		$scope.Adresses = res;	
+	});
+
+})
+
