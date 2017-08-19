@@ -6,4 +6,4 @@ $path:=Get 4D folder(HTML Root folder)+"4DTemplates"+Folder separator+"Adresses.
 $template:=Document to text($path)
 $answer:=""
 PROCESS 4D TAGS($template;$answer;$id)
-WEB SEND TEXT($answer
+WEB SEND TEXT($answer)

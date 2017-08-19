@@ -7,7 +7,11 @@
       <input type="search" placeholder="promo|groupeX|nom" ng-model="Ancien.nom" ng-change="searchAncien();getStats()">
     </label>
     </form>
-    <ion-item>Sélection: {{Stats.nb}}  C: {{Stats.cotisants}}  A: {{Stats.abonnes}}  R: {{Stats.retards}} V:{{Stats.vivants}} Npai: {{Stats.nhpai}}</ion-item>
+    <ion-item>Sélection: {{Stats.nb}} Vivants:{{Stats.vivants}}
+     C: {{Stats.cotisants}} Cj: {{Stats.cotisantsJoignables}} R: {{Stats.retards}} 
+     A: {{Stats.abonnes}} Aj: {{Stats.abonnesJoignables}}
+     Npai: {{Stats.nhpai}} 
+     </ion-item>
     <ion-list id="anciens-list1">
      <ion-item  class="item-avatar" ng-repeat="Ancien in Anciens" ui-sref="ancien({id:Ancien.id})">
        <img src="img/avatar.x.org.png"/>

@@ -1,4 +1,3 @@
-
 <!--#4DCODE
 if($1#"")
 set query limit (1500)
@@ -27,6 +26,7 @@ create set ([Ancien];"Ensemble")
 nb:=Records in selection([Ancien])
 query selection ([Ancien];[Ancien]Annee_dernCotis =Year of(Current date))
 cotisants:=Records in selection([Ancien])
+create set ([Ancien];"Cotisants")
 
 use set("Ensemble")
 query selection ([Ancien];[Ancien]Annee_dernCotis =Year of(Current date)-1;*)
@@ -36,6 +36,7 @@ retards:=Records in selection([Ancien])
 use set("Ensemble")
 query selection ([Ancien];[Abonnements]Date_fin >= Current date)
 abonnes:=Records in selection([Ancien])
+create set ([Ancien];"Abonnes")
 
 use set("Ensemble")
 query selection ([Ancien];[Ancien]date_deces = "00-00-00")
@@ -44,6 +45,19 @@ vivants:=Records in selection([Ancien])
 use set("Ensemble")
 query selection ([Ancien];[Ancien]date_NHPAI # "00-00-00")
 nhpai:=Records in selection([Ancien])
+create set ([Ancien];"Npai")
+
+difference("Cotisants";"Npai";"Cotisants")
+use set ("Cotisants")
+cotisantsJoignables:=Records in selection([Ancien])
+clear set ("Cotisants")
+
+difference("Abonnes";"Npai";"Abonnes")
+use set ("Abonnes")
+abonnesJoignables:=Records in selection([Ancien])
+clear set ("Abonnes")
+
+clear set("Npai")
 clear set("Ensemble")
 -->
 
@@ -53,5 +67,8 @@ clear set("Ensemble")
   "retards":"<!--#4DTEXT String(retards) -->",
   "abonnes":"<!--#4DTEXT String(abonnes) -->",
   "vivants":"<!--#4DTEXT String(vivants) -->",
-  "nhpai":"<!--#4DTEXT String(nhpai) -->"
+  "nhpai":"<!--#4DTEXT String(nhpai) -->",
+  "abonnesJoignables":"<!--#4DTEXT String(abonnesJoignables) -->",
+  "cotisantsJoignables":"<!--#4DTEXT String(cotisantsJoignables) -->"
+  
 }
