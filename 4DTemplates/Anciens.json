@@ -34,6 +34,7 @@ order by ([Ancien]; [Ancien]id_ancien;<)
 "prenom":"<!--#4DTEXT [Ancien]prenom-->",
 "promo":"<!--#4DCODE if ([Ancien]promotion_etude # 0)--><!--#4DTEXT [Ancien]promotion_etude--><!--#4DCODE end if -->",
 "mel":"<!--#4DCODE if ([Ancien]Mel_publiable)--><!--#4DTEXT [Ancien]Mel_usage--><!--#4DCODE end if -->",
+"forlife":"<!--#4DTEXT [Ancien]X.org_login-->",
 "mobile":"<!--#4DCODE if ([Ancien]Mobile_publiable)--><!--#4DTEXT [Ancien]Tel_mobile--><!--#4DCODE end if -->"
 
 }

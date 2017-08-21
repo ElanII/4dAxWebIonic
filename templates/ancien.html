@@ -1,8 +1,11 @@
 <ion-view title="Ancien" id="page2">
   <ion-nav-title>{{Ancien.prenom}} {{Ancien.nom}} ({{Ancien.id}})</ion-nav-title>
   <ion-content padding="true" class="has-header">
-    <div id="ancien-markdown1" class="show-list-numbers-and-dots">
+  <div>
+    <img src="https://www.polytechnique.org/photo/{{Ancien.forlife}}" style="display: block; width:auto; height:25%; margin-left: auto; margin-right: auto;">
+    </div>
     
+    <div id="ancien-markdown1" class="show-list-numbers-and-dots">
       <p>Prénom: {{Ancien.prenom}}</p>
       <p>Nom: {{Ancien.nom}}</p>
       <p>Origine: {{Ancien.origine}} - {{Ancien.corps}}</p>
@@ -17,6 +20,7 @@
       <p>Mobile: {{Ancien.mobile}}</p>
    	  <p>rem: {{Ancien.commentaire}}</p>
     </div>
+    
     <a ui-sref="activites({id:Ancien.id})" id="ancien-button1" class="button button-positive button-block">Activités prof.</a>
     <a ui-sref="cotisations({id:Ancien.id})" id="ancien-button2" class="button button-positive button-block">Cotisations</a>
     <a ui-sref="adresses({id:Ancien.id})" id="ancien-button3" class="button button-positive button-block">Adresses et tél.</a>

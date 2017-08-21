@@ -7,14 +7,14 @@
       <input type="search" placeholder="promo|groupeX|nom" ng-model="Ancien.nom" ng-change="searchAncien();getStats()">
     </label>
     </form>
-    <ion-item>Sélection: {{Stats.nb}} Vivants:{{Stats.vivants}}
-     C: {{Stats.cotisants}} Cj: {{Stats.cotisantsJoignables}} R: {{Stats.retards}} 
-     A: {{Stats.abonnes}} Aj: {{Stats.abonnesJoignables}}
-     Npai: {{Stats.nhpai}} 
+    <ion-item><p>Sélection: {{Stats.nb}} Vivants:{{Stats.vivants}} Npai: {{Stats.nhpai}}</p> 
+     <p>C: {{Stats.cotisants}} Cj: {{Stats.cotisantsJoignables}} R: {{Stats.retards}}</p> 
+     <p>A: {{Stats.abonnes}} Aj: {{Stats.abonnesJoignables}}</p>
+     
      </ion-item>
     <ion-list id="anciens-list1">
      <ion-item  class="item-avatar" ng-repeat="Ancien in Anciens" ui-sref="ancien({id:Ancien.id})">
-       <img src="img/avatar.x.org.png"/>
+       <img src="https://www.polytechnique.org/photo/{{Ancien.forlife}}"/>
         <h2>{{Ancien.nom}} {{Ancien.prenom}} ({{Ancien.promo}})</h2>
         <p>{{Ancien.mobile}} - {{Ancien.mel}}</p>
      </ion-item>

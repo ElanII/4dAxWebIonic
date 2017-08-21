@@ -25,6 +25,7 @@
 "gratuit":"<!--#4DTEXT [Ancien]raison_gratuite-->",
 "naissance":"<!--#4DTEXT [Ancien]Date naissance-->",
 "deces":"<!--#4DTEXT [Ancien]Date_deces-->",
+"forlife":"<!--#4DTEXT [Ancien]X.org_login-->",
 "mobile":"<!--#4DCODE if ([Ancien]Mobile_publiable) --><!--#4DTEXT [Ancien]Tel_mobile--><!--#4DCODE  end if -->"
 
 }
