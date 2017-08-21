@@ -6,7 +6,8 @@ query([Ancien];|;[Ancien]prenom=$1+"@";*)
 
 query([Ancien];|[Activites_prof]sigle=$1;*)
 query([Ancien];|;[Activites_prof]Nom_etab=$1+"@";*)
-query([Ancien];|;[Activites_prof]Code_etab=$1+"@";*)
+query([Ancien];|;[Activites_prof]Code_fonction=$1;*)
+query([Ancien];|;[Activites_prof]Secteur_act=$1;*)
 
 query([Ancien];|;[Ancien]promotion_etude=$1;*)
 
@@ -14,10 +15,10 @@ query([Ancien];|;[Ancien]Code_nationalite=$1;*)
 query([Ancien];|;[Ancien]AdrC_pays=$1;*)
 query([Ancien];|;[Ancien_Info_diverses]Code_info=$1;*)
 
-query ([Ancien];&;[Ancien]Origine="X")
+query ([Ancien];&;[Ancien]Origine%"X")
 
 else
-Set query limit (0)
+set query limit (0)
 all records ([Ancien])
 end if
 

@@ -4,16 +4,24 @@ if($1#"")
 QUERY([Activites_prof];[Ancien]id_ancien=$1+"@")
 end if
 order by ([Activites_prof]; [Activites_prof]Date_maj;>)
+  
 -->
 
 [
 <!--#4DLOOP [Activites_prof]-->
+<!--#4DCODE
+  $nomEtab:=replace string([Activites_prof]Nom_etab;"'";"_";*)
+  $nomEtab:=replace string($nomEtab;"&";"et";*)
+  
+  $fonction:=replace string([Activites_prof]Libelle_fonction;"'";"_";*)
+  $fonction:=replace string($fonction;"&";"et";*)
+-->
 {
 "idAncien":"<!--#4DTEXT [Activites_prof]id_ancien-->",
-"fonction":"<!--#4DTEXT [Activites_prof]Libelle_fonction-->",
+"fonction":"<!--#4DTEXT $fonction -->",
 "codeF":"<!--#4DTEXT [Activites_prof]Code_fonction-->",
 "service":"<!--#4DTEXT [Activites_prof]Service-->",
-"etab":"<!--#4DTEXT [Activites_prof]Nom_etab-->",
+"etab":"<!--#4DTEXT $nomEtab-->",
 "codeEtab":"<!--#4DTEXT [Activites_prof]Code_etab-->",
 "codeNAF":"<!--#4DTEXT [Activites_prof]Code_NAF-->",
 "tel":"<!--#4DTEXT [Activites_prof]Telephone-->",

@@ -9,16 +9,16 @@ query([Ancien];|;[Ancien]prenom=$1+"@";*)
 
 query([Ancien];|[Activites_prof]sigle=$1;*)
 query([Ancien];|;[Activites_prof]Nom_etab=$1+"@";*)
-query([Ancien];|;[Activites_prof]Code_etab=$1+"@";*)
-
+query([Ancien];|;[Activites_prof]Code_fonction=$1;*)
+query([Ancien];|;[Activites_prof]Secteur_act=$1;*)
 query([Ancien];|;[Ancien]promotion_etude=$1;*)
 
 query([Ancien];|;[Ancien]Code_nationalite=$1;*)
 query([Ancien];|;[Ancien]AdrC_pays=$1;*)
 query([Ancien];|;[Ancien_Info_diverses]Code_info=$1;*)
-query ([Ancien];&;[Ancien]Origine="X")  
+query ([Ancien];&;[Ancien]Origine%"X")  
 else
-set query limit (50)
+set query limit (30)
 query([Ancien];[Ancien_Info_diverses]Type_info="AS";*)
 query([Ancien];&;[Ancien_Info_diverses]Code_info="PER")
 end if
