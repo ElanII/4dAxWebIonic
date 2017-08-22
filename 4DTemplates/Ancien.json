@@ -1,6 +1,16 @@
 <!--#4DCODE QUERY([Ancien];[Ancien]id_ancien=$1) 
   $commentaire:=replace string([Ancien]Commentaire;"&";"+";*)
   $commentaire:=replace string($commentaire;"'";" ";*)
+  if ([Ancien]Mel_publiable)
+    $mel:=[Ancien]Mel_usage
+  else
+     $mel:="non publiable"
+  end if
+  if ([Ancien]Mobile_publiable)
+   $mobile:=[Ancien]Tel_mobile
+    else
+     $mobile:="non publiable"
+      end if
 -->
 {
 "id":"<!--#4DTEXT [Ancien]id_ancien-->",
@@ -22,13 +32,13 @@
 "cp":"<!--#4DCODE if (not([Ancien]Adresse_inhibee)) --><!--#4DTEXT [Ancien]AdrC_code_posta--><!--#4DCODE  end if -->",
 "zip":"<!--#4DCODE if (not([Ancien]Adresse_inhibee)) --><!--#4DTEXT [Ancien]AdrC_zip_cedex--><!--#4DCODE  end if -->",
 "pays":"<!--#4DCODE if (not([Ancien]Adresse_inhibee)) --><!--#4DTEXT [Ancien]AdrC_pays--><!--#4DCODE  end if -->",
-"mel":" <!--#4DCODE if ([Ancien]Mel_publiable) --><!--#4DTEXT [Ancien]Mel_usage--><!--#4DCODE end if -->",
+"mel":"<!--#4DTEXT $mel-->",
 "tel":"<!--#4DTEXT [Ancien]Adr2_telephone-->",
 "commentaire":"<!--#4DTEXT $commentaire-->",
 "gratuit":"<!--#4DTEXT [Ancien]raison_gratuite-->",
 "naissance":"<!--#4DTEXT [Ancien]Date naissance-->",
 "deces":"<!--#4DTEXT [Ancien]Date_deces-->",
 "forlife":"<!--#4DTEXT [Ancien]X.org_login-->",
-"mobile":"<!--#4DCODE if ([Ancien]Mobile_publiable) --><!--#4DTEXT [Ancien]Tel_mobile--><!--#4DCODE  end if -->"
+"mobile":"<!--#4DTEXT $mobile-->"
 
 }

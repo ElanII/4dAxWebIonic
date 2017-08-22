@@ -27,15 +27,27 @@ order by ([Ancien]; [Ancien]id_ancien;<)
 
 [
 <!--#4DLOOP [Ancien]-->
-
+<!--#4DCODE
+  if ([Ancien]Mel_publiable)
+    $mel:=[Ancien]Mel_usage
+  else
+     $mel:="mel non pub."  
+  end if
+  
+  if ([Ancien]Mobile_publiable)
+   $mobile:=[Ancien]Tel_mobile
+    else
+     $mobile:="mobile non pub."
+ end if
+-->
 {
 "id":"<!--#4DTEXT [Ancien]id_ancien-->",
 "nom":"<!--#4DTEXT [Ancien]Nom_usuel-->",
 "prenom":"<!--#4DTEXT [Ancien]prenom-->",
-"promo":"<!--#4DCODE if ([Ancien]promotion_etude # 0)--><!--#4DTEXT [Ancien]promotion_etude--><!--#4DCODE end if -->",
-"mel":"<!--#4DCODE if ([Ancien]Mel_publiable)--><!--#4DTEXT [Ancien]Mel_usage--><!--#4DCODE end if -->",
-"forlife":"<!--#4DTEXT [Ancien]X.org_login-->",
-"mobile":"<!--#4DCODE if ([Ancien]Mobile_publiable)--><!--#4DTEXT [Ancien]Tel_mobile--><!--#4DCODE end if -->"
+"promo":"<!--#4DTEXT [Ancien]promotion_etude-->",
+"forlife":"<!--#4DTEXT [Ancien]X.org_Login-->",
+"mel":"<!--#4DTEXT $mel-->",
+"mobile":"<!--#4DTEXT $mobile-->"
 
 }
 <!--#4DIF (Selected Record Number([Ancien]) < Records in Selection([Ancien]))-->,

@@ -1,16 +1,17 @@
-<ion-view title="Anciens" id="page1">
+<ion-view title="4dweb - Anciens" id="page1">
   <ion-content padding="true" class="has-header">
 
     <form id="anciens-form2" class="list">
     <label class="item item-input" id="anciens-search1">
       <i class="icon ion-search placeholder-icon"></i>
-      <input type="search" placeholder="promo|groupeX|nom" ng-model="Ancien.nom"
+      <input type="search" placeholder="promo|societe|fonction|info_diverse|nom,  puis cliquer !, pour afficher les membres"
+       ng-model="Ancien.nom"
        ng-change="getStats()" ng-click="searchAncien();getStats()">
     </label>
     </form>
     <ion-item><p>Total sélection: {{Stats.nb}} Vivants: {{Stats.vivants}} Npai: {{Stats.nhpai}}</p> 
-     <p>C: {{Stats.cotisants}} Cj: {{Stats.cotisantsJoignables}} R: {{Stats.retards}}</p> 
-     <p>A: {{Stats.abonnes}} Aj: {{Stats.abonnesJoignables}}</p>
+     <p>Cotisants: {{Stats.cotisants}} Cot.livrables: {{Stats.cotisantsJoignables}} Retards: {{Stats.retards}}</p> 
+     <p>Abonnés: {{Stats.abonnes}} Abo.livrables: {{Stats.abonnesJoignables}}</p>
      
      </ion-item>
     <ion-list id="anciens-list1">
